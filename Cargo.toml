@@ -1,0 +1,28 @@
+[package]
+name = "gqlmap"
+version = "0.1.0"
+edition = "2021"
+authors = ["giuseppesec"]
+description = "a cli tool for testing graphql that does more than one thing"
+license = "MIT"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json", "cookies", "socks"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+colored = "2"
+async-trait = "0.1"
+thiserror = "2"
+anyhow = "1"
+regex = "1"
+url = "2"
+indicatif = "0.17"
+tabled = "0.16"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
